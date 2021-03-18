@@ -1,0 +1,35 @@
+test1 类的基础
+test2 类的继承
+test3 类的重写与重载
+test4 类的多态/抽象方法
+test5 类的import
+test6 抽象类
+test7 默认构造函数
+test8 JAVA接口
+test9 Java语法-Switch-Case 都不符合就从default开始往下
+test10 Character类 有很多静态方法/a.getClass()/a instanceof Object
+test11 String类/重载toString方法/String.format
+test12 StringBuilder
+test13 StringBuffer
+test14 Array/Array类/Arrars类
+test15 Date类
+test16 Stream/File/IO/从键盘输入最方便的是scanner类
+test17 Error
+test18 游长实参表/增强for语句/System.exit(0)
+test19 Math
+test20 String经过函数是否改变
+test21 File/FileoutputStream
+test22 String常量池/equals/toCompare
+test23 URL类
+test24 IP isReachable
+test25 执行命令行
+test26 system.out/outputstream/fileoutputstream/printstream
+test27 system.in/inputstream/fileinputstream
+直接输出字节数组会出现乱码，因为字节数组的toString方法没有重写，输出的应该是类的信息，所以要拿这个字符数组来构建string类就可以了
+test28 byte []/String
+test29 数据的输入流与输出流
+test30 字符和字节长度
+test31 TCP
+test32 Object.equals
+test33 Collection.List
+test34 clone/equals/==
