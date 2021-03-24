@@ -16,5 +16,6 @@ public class Server {
         cInputStream.read(b);
         System.out.println(new String(b)); 
     
+        server.close();
     }
 }

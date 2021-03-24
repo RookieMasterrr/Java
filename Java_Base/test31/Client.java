@@ -10,5 +10,6 @@ public class Client {
         
         OutputStream cOutputStream = client.getOutputStream();
         cOutputStream.write("LYC".getBytes());
+        client.close();
     }
 }
