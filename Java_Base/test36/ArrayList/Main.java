@@ -1,7 +1,7 @@
 package test36.ArrayList;
 
 import java.util.ArrayList;
-import java.util.ListIterator;
+// import java.util.ListIterator;
 
 public class Main {
     public static void main(String[] args) {
