@@ -1,10 +1,10 @@
 package test12;
 
-import java.util.Arrays;
+// import java.util.Arrays;
 
 public class Main2 {
     public static void main(String[] args) {
-        int a[]={1,2,3,4,5,6};
+        // int a[]={1,2,3,4,5,6};
 
         String aString="123456";
         // for(int i:a){
