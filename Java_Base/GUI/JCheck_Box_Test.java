@@ -5,6 +5,7 @@
 package GUI;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.plaf.DimensionUIResource;
@@ -23,29 +24,9 @@ public class JButton_Test{
         
         JPanel aJPanel = new JPanel();
 
-        JButton aButton = new JButton("But");
-        aButton.setPreferredSize(new DimensionUIResource(70, 70)); 
+        JCheckBox aBox = new JCheckBox();
         
-        aButton.addActionListener(new ActionListener(){ 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JButton tButton = (JButton)e.getSource();
-                // if(e.getModifiers()-16==0){
-                //     System.out.println("NOTHING");
-                // }else if(e.getModifiers()-16==1){
-                //     System.out.println("SHIFT");
-                // }else if(e.getModifiers()-16==2){
-                //     System.out.println("CTRL");
-                // }else if(e.getModifiers()-16==8){
-                //     System.out.println("ALT");
-                // }
-                System.out.println(e.getClass());
-                System.out.println(e.getActionCommand());
-            }
-        });
-        aButton.setEnabled(true);
-
-        aJPanel.add(aButton);
+        aJPanel.add(aBox);
 
         aContainer.add(aJPanel,BorderLayout.SOUTH);
         
