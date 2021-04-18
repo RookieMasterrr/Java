@@ -2,7 +2,7 @@
 // 容器 Container
 // 面板 Panel 
 // 
-// package GUI;
+package GUI;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -55,20 +55,3 @@ public class JButton_Test{
         aFrame.setVisible(true);
     }
 }
-
-// class myListener implements ActionListener{
-
-//     @Override
-//     public void actionPerformed(ActionEvent e) {
-//         JButton tButton = (JButton)e.getSource();
-//         if(e.getModifiers()-16==0){
-//             System.out.println("NOTHING");
-//         }else if(e.getModifiers()-16==1){
-//             System.out.println("SHIFT");
-//         }else if(e.getModifiers()-16==2){
-//             System.out.println("CTRL");
-//         }else if(e.getModifiers()-16==8){
-//             System.out.println("ALT");
-//         }
-//     }
-// }
