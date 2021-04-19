@@ -30,7 +30,6 @@ public class myGUIS {
         JButton aButton = new JButton("aButton");
         aButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                // System.out.println(aField.getText());
                 whatinText = aField.getText();
             }
         });

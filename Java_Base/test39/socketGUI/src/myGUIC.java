@@ -13,7 +13,7 @@ import java.io.IOException;
 public class myGUIC {
     static String whatinText = "Test";
     public static void init() throws IOException {
-        Client clientSide = new Client("localhost", 5050);
+        Client clientSide = new Client("192.168.0.109", 5050);
 
         JFrame aFrame = new JFrame("Client");
         Container aContainer = aFrame.getContentPane();
