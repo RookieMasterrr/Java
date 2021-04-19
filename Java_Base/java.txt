@@ -35,3 +35,4 @@ test33 Collection.List
 test34 clone/equals/==
 test35 Thread
 test36 Collections
+test37 communicate

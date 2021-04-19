@@ -10,12 +10,14 @@ public class Server {
     public static void main(String[] args) throws IOException{
         ServerSocket server = new ServerSocket(5050);
         Socket client = server.accept();
-        InputStream cInputStream = client.getInputStream();
-        byte b[] = new byte[65536];
+        InputStream sFromClient = client.getInputStream();
+        byte bFromClient [] = new byte[65536];
         
-        cInputStream.read(b);
-        System.out.println(new String(b)); 
+        // read
+        sFromClient.read(bFromClient );
+        System.out.println(new String(bFromClient )); 
     
+        // write
         InputStream fromKeyBoard = System.in;
         byte bFromKeyBoard[] = new byte[65536];
         fromKeyBoard.read(bFromKeyBoard);

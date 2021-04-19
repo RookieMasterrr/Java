@@ -8,14 +8,15 @@ import java.net.Socket;
 public class Client {
     public static void main(String[] args) throws IOException{
         Socket client = new Socket("localhost", 5050);
-        OutputStream cOutputStream = client.getOutputStream();
+        OutputStream sFromClient = client.getOutputStream();
         
+        // write
         InputStream fromKeyBoard = System.in;
         byte bFromKeyBoard[] = new byte[65536];
         fromKeyBoard.read(bFromKeyBoard);
-        
-        cOutputStream.write(bFromKeyBoard);
+        sFromClient.write(bFromKeyBoard);
 
+        // read
         InputStream fromStoC = client.getInputStream();
         byte bFromStoC[] = new byte[65536];
         fromStoC.read(bFromStoC);
