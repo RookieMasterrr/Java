@@ -37,3 +37,5 @@ test35 Thread
 test36 Collections
 test37 communicate
 test38 GUI+Socket
+test39 GUI+Socket+OneWay
+test40 GUI+Socket+model
