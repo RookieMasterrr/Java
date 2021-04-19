@@ -7,17 +7,21 @@ import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) throws IOException{
-        Socket client = new Socket("192.168.0.106", 5050);
-        
+        Socket client = new Socket("localhost", 5050);
         OutputStream cOutputStream = client.getOutputStream();
         
-        InputStream aInputStream = System.in;
-        byte a[] = new byte[255];
-        aInputStream.read(a);
-
-
-        cOutputStream.write(a);
+        InputStream fromKeyBoard = System.in;
+        byte bFromKeyBoard[] = new byte[65536];
+        fromKeyBoard.read(bFromKeyBoard);
         
+        cOutputStream.write(bFromKeyBoard);
+
+        InputStream fromStoC = client.getInputStream();
+        byte bFromStoC[] = new byte[65536];
+        fromStoC.read(bFromStoC);
+        System.out.println(new String(bFromStoC));
+
+
         client.close();
     }
 }
