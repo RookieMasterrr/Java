@@ -10,14 +10,14 @@ import java.awt.event.ActionEvent;
 
 import java.awt.Container;
 import java.awt.event.ActionListener;
-public class myGUI {
+public class chatGUI {
     static JFrame aFrame;
     static Container aContainer;
     static JPanel aJPanel;
     static JTextArea EditArea;
     static JTextArea RecArea;
     static JButton aButton;
-    public myGUI(){
+    public chatGUI(){
         aFrame = new JFrame("aFrame");
         aContainer = aFrame.getContentPane();
         aContainer.setLayout(new FlowLayout());
@@ -54,6 +54,6 @@ public class myGUI {
         RecArea.setText(RecArea.getText()+"\n"+Info);
     }
     public static void main(String[] args) {
-        new myGUI();
+        new chatGUI();
     }
 }   
