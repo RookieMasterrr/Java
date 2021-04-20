@@ -4,7 +4,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.plaf.DimensionUIResource;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
