@@ -44,8 +44,6 @@ public class myGUI {
         });        
         aJPanel.add(aButton);
 
-
-
         aContainer.add(aJPanel);
         aFrame.setSize(700,300);
         aFrame.setDefaultCloseOperation(3);

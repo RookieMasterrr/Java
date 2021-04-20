@@ -25,15 +25,10 @@ public class Server extends ServerSocket{
     public static void main(String[] args) throws IOException{
         Server aServer = new Server(5050);    
         Socket serverSide = aServer.accept();    
-//***********************************************************//
 
         while(true){
             System.out.println(Read(serverSide));
             Write(serverSide);
         }
-
-//***********************************************************//
-        // serverSide.close();
-        // aServer.close();
     }
 }
