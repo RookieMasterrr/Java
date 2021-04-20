@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 
 import java.awt.Container;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+
 public class chatGUI {
     static JFrame aFrame;
     static Container aContainer;
@@ -18,7 +20,7 @@ public class chatGUI {
     static JTextArea RecArea;
     static JButton aButton;
     public chatGUI(){
-        aFrame = new JFrame("aFrame");
+        aFrame = new JFrame("chatGUI");
         aContainer = aFrame.getContentPane();
         aContainer.setLayout(new FlowLayout());
         aJPanel = new JPanel(); 
@@ -38,8 +40,12 @@ public class chatGUI {
         aButton = new JButton("aButton");
         aButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                System.out.println(EditArea.getText());
-                RecInfo(EditArea.getText());
+                // System.out.println(EditArea.getText());
+                // RecInfo(EditArea.getText());
+                try{
+                    Communicator.ChatFromUserToServer(EditArea.getText());
+                }catch(IOException aException){
+                }
             }
         });        
         aJPanel.add(aButton);
@@ -53,7 +59,7 @@ public class chatGUI {
     public static void RecInfo(String Info){
         RecArea.setText(RecArea.getText()+"\n"+Info);
     }
-    public static void main(String[] args) {
-        new chatGUI();
-    }
-}   
+    // public static void main(String[] args) {
+    //     new chatGUI();
+    // }
+}

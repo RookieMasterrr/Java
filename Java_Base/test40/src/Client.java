@@ -19,4 +19,8 @@ public class Client extends Socket{
         aInputStream.read(a);
         return (new String(a));
     }
+    // public static void main(String[] args) throws IOException{
+    //     Client aClient = new Client("localhost", 5050);
+    //     aClient.Write("hello");
+    // }
 }
