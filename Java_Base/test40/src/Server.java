@@ -28,6 +28,7 @@ public class Server extends ServerSocket{
 
         while(true){
             System.out.println(Read(serverSide));
+            // System.out.println(serverSide.getPort());
             // Write(serverSide);
         }
     }

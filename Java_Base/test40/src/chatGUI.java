@@ -40,8 +40,6 @@ public class chatGUI {
         aButton = new JButton("aButton");
         aButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                // System.out.println(EditArea.getText());
-                // RecInfo(EditArea.getText());
                 try{
                     Communicator.ChatFromUserToServer(EditArea.getText());
                 }catch(IOException aException){
