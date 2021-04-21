@@ -1,5 +1,7 @@
 package test35;
 
+// package test35;
+
 public class Main {
     public static void main(String[] args) {
         Thread t1 = new Thread(new J_Thread(1));
