@@ -23,7 +23,7 @@ public class Communicator {
     }
     public static void ChatFromServerToUser() throws IOException{
         String text = aClient.Read();
-        System.out.println("text="+text);
+        System.out.println("textFromServer="+text);
         chatGUI.RecArea.setText(text);
     }
 }

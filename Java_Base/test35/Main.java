@@ -21,7 +21,7 @@ class J_Thread implements Runnable{
     }
     @Override
     public void run(){
-        for(int i=0; i<5; i++){
+        while(true){
             System.out.printf("id=%d ",id);
             try {
                 Thread.sleep(100);
