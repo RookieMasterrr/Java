@@ -15,21 +15,19 @@ public class Server extends ServerSocket{
         aInputStream.read(a);
         return (new String(a));
     }
-    static public void Write(Socket aSocket) throws IOException{
+    static public void Write(Socket aSocket,String text) throws IOException{
         OutputStream aOutputStream = aSocket.getOutputStream();
-        InputStream aInputStream = System.in;
-        byte a[] = new byte[65536];
-        aInputStream.read(a);
-        aOutputStream.write(a);
+        byte aText[] = text.getBytes();
+        aOutputStream.write(aText);
     }
     public static void main(String[] args) throws IOException{
         Server aServer = new Server(5050);    
         Socket serverSide = aServer.accept();    
 
-        while(true){
+        // while(true){
             System.out.println(Read(serverSide));
-            // System.out.println(serverSide.getPort());
-            // Write(serverSide);
-        }
+            System.out.println(Read(serverSide));
+            Write(serverSide, "ServerEcho");
+        // }
     }
 }
