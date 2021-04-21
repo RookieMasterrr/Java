@@ -26,6 +26,7 @@ public class Server extends ServerSocket{
 
         // while(true){
             System.out.println(Read(serverSide));
+            Write(serverSide, "ServerEcho");
             System.out.println(Read(serverSide));
             Write(serverSide, "ServerEcho");
         // }

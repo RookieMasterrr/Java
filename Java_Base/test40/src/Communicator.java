@@ -13,10 +13,10 @@ public class Communicator {
         new chatGUI();
         
         ChatFromServerToUser();
+        System.out.println("hello?");
+        // while(true){
 
-        while(true){
-
-        }
+        // }
     }
     public static void ChatFromUserToServer(String text) throws IOException{
         aClient.Write(text);
