@@ -20,6 +20,7 @@ public class serverGUI {
     static JTextArea EditArea;
     static JTextArea RecArea;
     static JButton aButton;
+    static JLabel connectJLabel;
     public serverGUI(){
         aFrame = new JFrame("serverGUI");
         aContainer = aFrame.getContentPane();
@@ -48,6 +49,10 @@ public class serverGUI {
             }
         });        
         aJPanel.add(aButton);
+
+        connectJLabel = new JLabel("Waiting For Connect");
+        aJPanel.add(connectJLabel);
+
 
         aContainer.add(aJPanel);
         aFrame.setSize(700,300);

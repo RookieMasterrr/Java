@@ -30,4 +30,7 @@ public class SCommunicator {
     public static void toTheScreen(String text) throws IOException{
         serverGUI.RecArea.setText(text);
     }
+    public static void changeConnectStatus(String text){
+        serverGUI.connectJLabel.setText(text);
+    }
 }

@@ -22,11 +22,13 @@ public class Server extends ServerSocket{
         aOutputStream.write(aText);
     }
     public static void main(String[] args) throws IOException {
+        new serverGUI();
         Server aServer = new Server(5050);    
         Socket serverSide = aServer.accept();
+        
+        SCommunicator.changeConnectStatus(new String(serverSide.getInetAddress().getAddress()));
         SCommunicator.aServer = aServer;
         SCommunicator.serverSide = serverSide;
-        new serverGUI();
         while(true){
             System.out.println(Server.Read(serverSide));
         }
