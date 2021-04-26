@@ -21,7 +21,7 @@ public class Client extends Socket{
         return (new String(a));
     }
     public static void main(String[] args) throws IOException{
-        Client aClient = new Client("localhost", 5050);
+        Client aClient = new Client("192.168.0.106", 5050);
         CCommunicator.aClient=aClient;
         new chatGUI();
         while(true){

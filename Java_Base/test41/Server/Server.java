@@ -26,7 +26,8 @@ public class Server extends ServerSocket{
         Server aServer = new Server(5050);    
         Socket serverSide = aServer.accept();
         
-        SCommunicator.changeConnectStatus(new String(serverSide.getInetAddress().getAddress()));
+        SCommunicator.changeConnectStatus(serverSide.getRemoteSocketAddress().toString()+"/"+serverSide.getPort());
+
         SCommunicator.aServer = aServer;
         SCommunicator.serverSide = serverSide;
         while(true){
