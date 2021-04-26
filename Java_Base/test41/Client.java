@@ -6,7 +6,6 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 public class Client extends Socket{
-    public static Client aClient;
     public Client(String H,int P)throws IOException{
         super(H,P);
     }
@@ -18,32 +17,15 @@ public class Client extends Socket{
         InputStream aInputStream = this.getInputStream();
         byte a[] = new byte[65536];
         aInputStream.read(a);
+        CCommunicator.toTheScreen(new String(a));
         return (new String(a));
     }
     public static void main(String[] args) throws IOException{
-        aClient = new Client("localhost", 5050);
-        // while(true){
-        //     aClient.Write("hello");
-        //     System.out.println(aClient.Read());
-        // }
-        }
-}
-
-
-class Cread implements Runnable{
-    @Override
-    public void run(){
+        Client aClient = new Client("localhost", 5050);
+        CCommunicator.aClient=aClient;
+        new chatGUI();
         while(true){
-            System.out.println(aC);
-        }
-    }
-}
-
-class Cwrite implements Runnable{
-    @Override
-    public void run(){
-        while(true){
-            Write(serverSide, "ServerEcho");
+            System.out.println(aClient.Read());
         }
     }
 }
