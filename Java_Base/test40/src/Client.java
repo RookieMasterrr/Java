@@ -17,7 +17,9 @@ public class Client extends Socket{
         InputStream aInputStream = this.getInputStream();
         byte a[] = new byte[65536];
         aInputStream.read(a);
-        return (new String(a));
+        String text = new String(a);
+
+        return (text);
     }
     // public static void main(String[] args) throws IOException{
     //     Client aClient = new Client("localhost", 5050);

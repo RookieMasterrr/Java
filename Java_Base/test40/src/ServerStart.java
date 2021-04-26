@@ -7,17 +7,12 @@ public class ServerStart {
     static ArrayList<String> arrayList;
     public static void main(String[] args) throws IOException {
         arrayList = new ArrayList<String>();
-        new menuGUI();
+        new ServerMenuGUI();
         Server aServer = new Server(5050);    
         while(true){
             Socket serverSide = aServer.accept();
+            Server.UpdateList(serverSide,arrayList.toString());
             arrayList.add(serverSide.getRemoteSocketAddress().toString());
-            Server.Write(serverSide);
-            // menuGUI.SomeoneConnect(serverSide.getRemoteSocketAddress().toString());
-            // menuGUI.aJLabel.setText(serverSide.getRemoteSocketAddress().toString()+"connect");
         }
-    }
-    public static String makeListToString(ArrayList<String> arrayList){
-        
     }
 }

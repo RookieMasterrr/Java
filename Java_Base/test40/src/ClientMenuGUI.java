@@ -6,12 +6,12 @@ import javax.swing.plaf.DimensionUIResource;
 
 import java.awt.Container;
 
-public class menuGUI {
+public class ClientMenuGUI {
     public static JPanel aJPanel;
     public static Container aContainer;
     public static JLabel aJLabel;
-    public menuGUI(){
-        JFrame aFrame = new JFrame();
+    public ClientMenuGUI(){
+        JFrame aFrame = new JFrame("ClientMenu");
         aContainer = aFrame.getContentPane();
         aJPanel = new JPanel();
         
@@ -37,7 +37,7 @@ public class menuGUI {
         // aContainer.add(aJPanel);
     }
     public static void main(String[] args) {
-        new menuGUI();
+        new ServerMenuGUI();
     }
     public static void SomeoneConnect(String text){
         aJPanel.add(new JButton(text));

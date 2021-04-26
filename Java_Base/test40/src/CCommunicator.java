@@ -7,7 +7,7 @@ public class CCommunicator {
         String tempString = username+password;
         aClient.Write(tempString);
         LoginGUI.aFrame.dispose();
-        new chatGUI();
+        new ClientMenuGUI();
     }
     public static void ChatFromUserToServer(String text) throws IOException{
         aClient.Write(text);

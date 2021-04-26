@@ -5,5 +5,6 @@ public class ClientStart {
         Client aClient = new Client("localhost", 5050);
         CCommunicator.aClient = aClient;
         new LoginGUI();
+        System.out.println(aClient.Read());
     }
 }
