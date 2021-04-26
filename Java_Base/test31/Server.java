@@ -18,11 +18,11 @@ public class Server {
         System.out.println(new String(bFromClient )); 
     
         // write
-        InputStream fromKeyBoard = System.in;
-        byte bFromKeyBoard[] = new byte[65536];
-        fromKeyBoard.read(bFromKeyBoard);
-        OutputStream fromStoC = client.getOutputStream();
-        fromStoC.write(bFromKeyBoard);
+        // InputStream fromKeyBoard = System.in;
+        // byte bFromKeyBoard[] = new byte[65536];
+        // fromKeyBoard.read(bFromKeyBoard);
+        // OutputStream fromStoC = client.getOutputStream();
+        // fromStoC.write(bFromKeyBoard);
 
         server.close();
     }

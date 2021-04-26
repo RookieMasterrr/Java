@@ -17,10 +17,10 @@ public class Client {
         sFromClient.write(bFromKeyBoard);
 
         // read
-        InputStream fromStoC = client.getInputStream();
-        byte bFromStoC[] = new byte[65536];
-        fromStoC.read(bFromStoC);
-        System.out.println(new String(bFromStoC));
+        // InputStream fromStoC = client.getInputStream();
+        // byte bFromStoC[] = new byte[65536];
+        // fromStoC.read(bFromStoC);
+        // System.out.println(new String(bFromStoC));
 
 
         client.close();
