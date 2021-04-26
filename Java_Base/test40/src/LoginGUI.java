@@ -44,10 +44,9 @@ public class LoginGUI {
                 String password = (String.valueOf(passwordField.getPassword()));
 
                 if(username.equals("") || password.equals("")){
-                    System.out.println("ji");
                 }else{
                     try{
-                        Communicator.LoginSentUsernameAndPasswordFromGUItoSocket(username,password);
+                        CCommunicator.LoginSentUsernameAndPasswordFromGUItoSocket(username,password);
                         }catch(IOException exception){
                     }
                 }
@@ -59,7 +58,7 @@ public class LoginGUI {
         aFrame.setDefaultCloseOperation(3);
         aFrame.setVisible(true);
     }
-    public static void main(String[] args) {
-        new LoginGUI();
-    }
+    // public static void main(String[] args) {
+    //     new LoginGUI();
+    // }
 }

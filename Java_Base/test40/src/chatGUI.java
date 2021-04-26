@@ -41,7 +41,7 @@ public class chatGUI {
         aButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 try{
-                    Communicator.ChatFromUserToServer(EditArea.getText());
+                    CCommunicator.ChatFromUserToServer(EditArea.getText());
                 }catch(IOException aException){
                 }
             }
