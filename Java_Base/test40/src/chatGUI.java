@@ -52,6 +52,7 @@ public class chatGUI {
         aFrame.setSize(700,300);
         aFrame.setDefaultCloseOperation(3);
         aFrame.setVisible(true);
+        aFrame.setAlwaysOnTop(true);
     }
 
     public static void RecInfo(String Info){

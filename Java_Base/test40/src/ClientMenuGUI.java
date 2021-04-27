@@ -10,17 +10,18 @@ public class ClientMenuGUI {
     public static JPanel aJPanel;
     public static Container aContainer;
     public static JLabel aJLabel;
+    public static JFrame aFrame;
     public ClientMenuGUI(){
-        JFrame aFrame = new JFrame("ClientMenu");
+        aFrame = new JFrame("ClientMenu");
         aContainer = aFrame.getContentPane();
         aJPanel = new JPanel();
         
 
 
         aJLabel = new JLabel();
-        aJLabel.setPreferredSize(new DimensionUIResource(130, 50));
+        aJLabel.setPreferredSize(new DimensionUIResource(200, 50));
         aJPanel.add(new JLabel());
-        aJPanel.add(new JLabel());
+        aJPanel.add(new JLabel("hello?"));
         aJPanel.add(aJLabel);
         aJPanel.add(new JLabel());
 
