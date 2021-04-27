@@ -11,7 +11,7 @@ public class ServerStart {
         Server aServer = new Server(5050);    
         while(true){
             Socket serverSide = aServer.accept();
-            Server.UpdateList(serverSide,arrayList.toString());
+            
             arrayList.add(serverSide.getRemoteSocketAddress().toString());
         }
     }
