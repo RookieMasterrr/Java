@@ -7,20 +7,20 @@ import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) throws IOException{
-        Socket client = new Socket("localhost", 5050);
+        Socket client = new Socket("192.168.0.106", 5050);
         OutputStream sFromClient = client.getOutputStream();
         
-        // write
-        InputStream fromKeyBoard = System.in;
-        byte bFromKeyBoard[] = new byte[65536];
-        fromKeyBoard.read(bFromKeyBoard);
-        sFromClient.write(bFromKeyBoard);
+        int thePortIWantToChat = 1001;
 
-        // read
-        // InputStream fromStoC = client.getInputStream();
-        // byte bFromStoC[] = new byte[65536];
-        // fromStoC.read(bFromStoC);
-        // System.out.println(new String(bFromStoC));
+        String localSocketString;
+        localSocketString = client.getLocalSocketAddress().toString().replace("/", "");
+        String ipAddress = localSocketString.substring(0, localSocketString.indexOf(":")); 
+        
+
+        String chatInfo = ipAddress+":"+thePortIWantToChat;
+
+        sFromClient.write(chatInfo.getBytes());
+
 
 
         client.close();

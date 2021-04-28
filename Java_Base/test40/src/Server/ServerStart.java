@@ -17,19 +17,31 @@ public class ServerStart {
         Robot robot = new Robot();
         while(true){
             Socket serverSide = aServer.accept();
-            robot.delay(1000);
-            System.out.println("New Connection!");
             
-            Server.Write(serverSide, "Userlist"+ipList.toString());
+            String thisConnectionsChatAddressString = Server.Read(serverSide);
+            
+//            robot.delay(1000);
+            System.out.println("New Connection!Chat Port = ");
+            
+            System.out.println(thisConnectionsChatAddressString);
+            
+//            Server.Write(serverSide, "Userlist"+ipList.toString());
+
+            ipList.add(thisConnectionsChatAddressString);
+            connectList.add(serverSide);
             
             remindAllUser();
-            ipList.add(serverSide.getRemoteSocketAddress().toString());
-            connectList.add(serverSide);
+
+
         }
     }
     public static void remindAllUser() throws IOException {
     	for(Socket x:connectList) {
-    		Server.Write(x,"Userlist"+ipList.toString());
+    		String sendInfoString = "Userlist"+ipList.toString();
+    		Server.Write(x,sendInfoString);
+    		System.out.println("serverinfohere");
+    		System.out.println(sendInfoString);
+    		
     	}
     }
 }

@@ -8,6 +8,7 @@ import java.awt.Container;
 
 public class ClientMenuGUI {
     public static JPanel aJPanel;
+    public static JPanel bJPanel;
     public static Container aContainer;
     public static JLabel aJLabel;
     public static JFrame aFrame;
@@ -15,7 +16,7 @@ public class ClientMenuGUI {
         aFrame = new JFrame("ClientMenu");
         aContainer = aFrame.getContentPane();
         aJPanel = new JPanel();
-        
+        bJPanel = new JPanel();
 
 
         aJLabel = new JLabel();
@@ -26,6 +27,9 @@ public class ClientMenuGUI {
         aJPanel.add(new JLabel());
 
 
+        bJPanel.add(new JButton("Exit"));
+        
+        aContainer.add(bJPanel);
         aContainer.add(aJPanel);
         
         aFrame.setVisible(true);
@@ -37,9 +41,9 @@ public class ClientMenuGUI {
         
         // aContainer.add(aJPanel);
     }
-    public static void main(String[] args) {
-        new ServerMenuGUI();
-    }
+//    public static void main(String[] args) {
+//        new ServerMenuGUI();
+//    }
     public static void SomeoneConnect(String text){
         aJPanel.add(new JButton(text));
         aContainer.add(aJPanel);
