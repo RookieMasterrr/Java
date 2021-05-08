@@ -6,10 +6,11 @@ public class ClientStart {
 	public static Server aServer;
 	public static int chatPort;
 	public static Socket chatSocket;
+	public static Client aClient; //连接服务器的socket
     public static void main(String[] args) throws IOException {
     	Random aRandom = new Random();
     	chatPort = 6060+aRandom.nextInt(100);
-    	Client aClient = new Client("192.168.0.106", 5050);
+    	aClient = new Client("192.168.0.106", 5050);
     	CCommunicator.aClient = aClient;
 
     	aClient.Write(ReturnChatPortAndIP(aClient.getLocalSocketAddress().toString()));
@@ -20,13 +21,17 @@ public class ClientStart {
 //
     	Thread JGUI = new Thread(new GUIThread());
     	Thread JListen = new Thread(new ListeningThread());
+    	// Thread jListenLisThread = new Thread(new ListeningUserMapThread());
 
     	System.out.println("chatPort = "+chatPort);
 
 //    	JGUI.run();
     	JGUI.start();
-    	JListen.start();
-    	
+
+		// 
+    	// JListen.start();
+
+		// jListenLisThread.start();
     }
     public static String ReturnChatPortAndIP(String info) {
         int thePortIWantToChat = chatPort;
@@ -42,6 +47,8 @@ public class ClientStart {
 
         System.out.println("chatInfo="+chatInfo);
         
+		System.out.println("ItsChatInfo'slen"+chatInfo.length());
+
         return chatInfo;
     }
 }
@@ -52,6 +59,19 @@ class GUIThread implements Runnable{
 		new LoginGUI();
 	}
 	
+}
+
+class ListeningUserMapThread implements Runnable{
+	@Override
+	public void run(){
+		try{
+			while(true){
+				System.out.println(ClientStart.aClient.Read());
+			}
+			}catch(IOException exception){
+
+		}
+	}
 }
 
 class ListeningThread implements Runnable{

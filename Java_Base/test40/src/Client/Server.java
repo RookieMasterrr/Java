@@ -10,10 +10,14 @@ public class Server extends ServerSocket{
         super(P);
     }
     static public String Read(Socket aSocket)throws IOException{
-        byte a[] = new byte[65536];
-        InputStream aInputStream = aSocket.getInputStream();
-        aInputStream.read(a);
-        return (new String(a));
+        // byte a[] = new byte[65536];
+        // byte a[] = new byte[25];
+        
+        // InputStream aInputStream = aSocket.getInputStream();
+        // aInputStream.read(a);
+        // String sendString = new String(a);
+        // System.out.println("sendStringleng="+sendString.length());
+        return ("hahah");
     }
     static public void Write(Socket aSocket,String text) throws IOException{
         OutputStream aOutputStream = aSocket.getOutputStream();

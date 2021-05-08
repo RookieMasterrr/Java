@@ -3,6 +3,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.lang.ProcessHandle.Info;
 
 import javax.swing.JButton;
 public class CCommunicator {
@@ -15,8 +16,9 @@ public class CCommunicator {
         Thread t1 = new Thread(new test());
         t1.start();
         
-        Thread t2 = new Thread(new test2());
-        t2.start();
+		System.out.println("hello"+aClient.Read()); 
+        // Thread t2 = new Thread(new test2());
+        // t2.start();
         
         
     }
@@ -26,13 +28,14 @@ public class CCommunicator {
     	while(true) {
     		System.out.println("TextFromServer");
     		String Info = aClient.Read();
-    		System.out.println(Info);
-    		if(Info.indexOf("Userlist")!=-1) {
-//    			更新列表的信息
-    			addButton(Info);
-    		}else {
+			System.out.println(Info);
+//     		System.out.println(Info);
+//     		if(Info.indexOf("Userlist")!=-1) {
+// //    			更新列表的信息
+//     			addButton(Info);
+//     		}else {
     			
-    		}
+//     		}
     	}
     }
     
