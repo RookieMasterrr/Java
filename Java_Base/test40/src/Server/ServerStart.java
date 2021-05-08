@@ -19,13 +19,14 @@ public class ServerStart {
             Socket serverSide = aServer.accept();
             
             String thisConnectionsChatAddressString = Server.Read(serverSide);
+            // Server.Read(serverSide);
             System.out.println("thisconne's="+thisConnectionsChatAddressString);
             System.out.println("thisconne'slen="+thisConnectionsChatAddressString.length());
 //            robot.delay(1000);
             System.out.println("New Connection!Chat Port = ");
             
             System.out.println(thisConnectionsChatAddressString);
-            
+             
 //            Server.Write(serverSide, "Userlist"+ipList.toString());
 
             ipList.add(thisConnectionsChatAddressString);

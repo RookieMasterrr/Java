@@ -13,7 +13,8 @@ public class ClientStart {
     	aClient = new Client("192.168.0.106", 5050);
     	CCommunicator.aClient = aClient;
 
-    	aClient.Write(ReturnChatPortAndIP(aClient.getLocalSocketAddress().toString()));
+    	// aClient.Write(ReturnChatPortAndIP(aClient.getLocalSocketAddress().toString()));
+    	aClient.Write("Fuck!");
     	
 //    	System.out.println();
     	
