@@ -7,8 +7,8 @@ import java.lang.ProcessHandle.Info;
 
 import javax.swing.JButton;
 public class CCommunicator {
-    static Client aClient;
-    static Client chatClient;
+    static Client aClient;//连接上服务器的socket
+    static Client chatClient;//聊天socket
     public static void LoginSentUsernameAndPasswordFromGUItoSocket (String username, String password)throws IOException{
         String tempString = username+password;
         LoginGUI.aFrame.dispose();
@@ -20,7 +20,6 @@ public class CCommunicator {
 		// 
 		Thread t2 = new Thread(new test2());
         t2.start();
-        
         
     }
 
@@ -39,11 +38,13 @@ public class CCommunicator {
     	}
     }
     
-
 	
     public static void addButton(String ButtonInfo) {
         String aString = ButtonInfo;
 
+		System.out.println("aString.length="+aString.length());
+
+		// 去掉冗余
 		String temp2 = aString.replace("Userlist", "");
         String temp3 = (temp2.replace("[", ""));
         String temp4 = temp3.replace("]", "");
@@ -51,30 +52,64 @@ public class CCommunicator {
         String []iplist = temp5.split(",");
 
         for(String i:iplist){
-        	System.out.println(i);
-        	JButton otherClientButton = new JButton(i);
+        	
+			JButton otherClientButton = new JButton(i);
         	otherClientButton.addActionListener(new ActionListener() {
 				
+				// 按下按钮后的操作
 				@Override
 				public void actionPerformed(ActionEvent e) {
+					String []IpAndPort = i.split(":");
+					
+					String MyIp = IpAndPort[0];
+					String strport = IpAndPort[1];
+					
+					//防止字符串过长
+					strport=strport.substring(0,4);
+					
+					int MyPort = Integer.parseInt(strport);
+
+					// 连接点击的用户
+					try {
+						chatClient = new Client(MyIp, MyPort);
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+
+					
+
+					// chatGUI线程
+					Thread chatGUIthread = new Thread(new chatGUIThread());
+					chatGUIthread.start();
+
 					
 				}
 			});
         	ClientMenuGUI.aJPanel.add(otherClientButton);
+			// refresh GUI
         	ClientMenuGUI.aJPanel.revalidate();
         }    
         }
+
+	public static void sendChatText(String text) throws IOException{
+		chatClient.Write(text);
+	}
+
+	public static void removeChatInfoToGUI(String textString){
+		chatGUI.RecArea.setText(textString);
+	}
+
+
 }
 
 
 
-class test implements Runnable{
 
+class test implements Runnable{
 	@Override
 	public void run() {
 		new ClientMenuGUI();
 	}
-	
 }
 
 class test2 implements Runnable{
@@ -83,8 +118,14 @@ class test2 implements Runnable{
     	try {
 			CCommunicator.ClientListening();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+}
+
+class chatGUIThread implements Runnable{
+	@Override
+	public void run(){
+		new chatGUI();
 	}
 }

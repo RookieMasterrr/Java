@@ -12,6 +12,7 @@ public class Client extends Socket{
     public void Write(String aString)throws IOException{
         OutputStream aOutputStream = this.getOutputStream();
         System.out.println("sendLength="+aString.length());
+        System.out.println("sendInfo="+aString);
         aOutputStream.write(aString.getBytes());
     }
     public String Read() throws IOException{

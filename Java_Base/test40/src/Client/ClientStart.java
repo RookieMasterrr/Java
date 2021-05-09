@@ -19,7 +19,9 @@ public class ClientStart {
     	aServer = new Server(chatPort);
 
 		Thread JGUI = new Thread(new GUIThread());
-    	Thread JListen = new Thread(new ListeningThread());
+
+		// 监听其他用户连接
+    	Thread JListen = new Thread(new ListeningConnectionThread());
 
     	System.out.println("chatPort = "+chatPort);
 
@@ -70,24 +72,52 @@ class ListeningUserMapThread implements Runnable{
 	}
 }
 
-class ListeningThread implements Runnable{
+class ListeningConnectionThread implements Runnable{
 
 	@Override
 	public void run() {
 		try {
 			System.out.println("Port is Open Num = "+ClientStart.chatPort);
 			Socket aSocket = ClientStart.aServer.accept();
+			System.out.println("Socket's detail="+aSocket.getRemoteSocketAddress());
 			ClientStart.chatSocket = aSocket;
 			
 			System.out.println("ConnectSuccessfully");
-			while(true){
-
-				String chatText = Server.Read(aSocket);
-			}
+			new chatGUI();
+			System.out.println("ReadToGetText");
+			
+			Thread listeningChatThread = new Thread(new ListeningChatInfoThread(aSocket));
+			listeningChatThread.start();
+			// while(true){
+			// 	System.out.println("ReadToGetText");
+			// 	String chatText = Server.Read(aSocket);
+			// 	System.out.println(chatText);
+			// }
+			
 		} catch (IOException e) {
 
 			e.printStackTrace();
 		}
 	}
 	
+}
+
+
+class ListeningChatInfoThread implements Runnable{
+	Socket listeningSocket;
+	public ListeningChatInfoThread(Socket aSocket){
+		listeningSocket = aSocket;
+	}
+	@Override
+	public void run(){
+		while(true){
+			String chatText;
+			try {
+				chatText = Server.Read(listeningSocket);
+				System.out.println(chatText);
+				CCommunicator.removeChatInfoToGUI(chatText);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}	}
 }

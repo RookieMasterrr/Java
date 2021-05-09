@@ -13,7 +13,7 @@ public class ClientMenuGUI {
     public static JLabel aJLabel;
     public static JFrame aFrame;
     public ClientMenuGUI(){
-        aFrame = new JFrame("ClientMenu");
+        aFrame = new JFrame("ClientMenu(UserList)");
         aContainer = aFrame.getContentPane();
         aJPanel = new JPanel();
         bJPanel = new JPanel();

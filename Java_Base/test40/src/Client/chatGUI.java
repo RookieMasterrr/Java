@@ -20,7 +20,7 @@ public class chatGUI {
     static JTextArea RecArea;
     static JButton aButton;
     public chatGUI(){
-        aFrame = new JFrame("chatGUI");
+        aFrame = new JFrame("ChatGUI");
         aContainer = aFrame.getContentPane();
         aContainer.setLayout(new FlowLayout());
         aJPanel = new JPanel(); 
@@ -40,10 +40,11 @@ public class chatGUI {
         aButton = new JButton("aButton");
         aButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                // try{
-                //     // CCommunicator.ChatFromUserToServer(EditArea.getText());
-                // }catch(IOException aException){
-                // }
+                try{
+                    System.out.println("You Clicked the aButton");
+                    CCommunicator.sendChatText(EditArea.getText());
+                }catch(IOException aException){
+                }
             }
         });        
         aJPanel.add(aButton);
