@@ -40,10 +40,10 @@ public class chatGUI {
         aButton = new JButton("aButton");
         aButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                try{
-                    CCommunicator.ChatFromUserToServer(EditArea.getText());
-                }catch(IOException aException){
-                }
+                // try{
+                //     // CCommunicator.ChatFromUserToServer(EditArea.getText());
+                // }catch(IOException aException){
+                // }
             }
         });        
         aJPanel.add(aButton);

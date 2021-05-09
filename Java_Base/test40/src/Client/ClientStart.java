@@ -9,31 +9,26 @@ public class ClientStart {
 	public static Client aClient; //连接服务器的socket
     public static void main(String[] args) throws IOException {
     	Random aRandom = new Random();
-    	chatPort = 6060+aRandom.nextInt(100);
+    	chatPort = 6060+aRandom.nextInt(500);
     	aClient = new Client("192.168.0.106", 5050);
     	CCommunicator.aClient = aClient;
 
-    	// aClient.Write(ReturnChatPortAndIP(aClient.getLocalSocketAddress().toString()));
-    	aClient.Write("Fuck!");
+    	aClient.Write(ReturnChatPortAndIP(aClient.getLocalSocketAddress().toString()));
     	
-//    	System.out.println();
     	
     	aServer = new Server(chatPort);
-//
-    	Thread JGUI = new Thread(new GUIThread());
+
+		Thread JGUI = new Thread(new GUIThread());
     	Thread JListen = new Thread(new ListeningThread());
-    	// Thread jListenLisThread = new Thread(new ListeningUserMapThread());
 
     	System.out.println("chatPort = "+chatPort);
 
-//    	JGUI.run();
     	JGUI.start();
 
-		// 
-    	// JListen.start();
+    	JListen.start();
 
-		// jListenLisThread.start();
-    }
+
+	}
     public static String ReturnChatPortAndIP(String info) {
         int thePortIWantToChat = chatPort;
 
