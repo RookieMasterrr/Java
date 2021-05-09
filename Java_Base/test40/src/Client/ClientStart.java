@@ -81,11 +81,11 @@ class ListeningThread implements Runnable{
 			
 			System.out.println("ConnectSuccessfully");
 			while(true){
+
 				String chatText = Server.Read(aSocket);
-//				CCommunicator.putChatTextToGUI(chatText);
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	}
