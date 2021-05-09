@@ -3,12 +3,12 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.lang.ProcessHandle.Info;
+import java.net.Socket;
 
 import javax.swing.JButton;
 public class CCommunicator {
     static Client aClient;//连接上服务器的socket
-    static Client chatClient;//聊天socket
+    static Socket chatSocket;//聊天socket
     public static void LoginSentUsernameAndPasswordFromGUItoSocket (String username, String password)throws IOException{
         String tempString = username+password;
         LoginGUI.aFrame.dispose();
@@ -71,7 +71,9 @@ public class CCommunicator {
 
 					// 连接点击的用户
 					try {
-						chatClient = new Client(MyIp, MyPort);
+
+						chatSocket = new Socket(MyIp, MyPort);
+
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
@@ -81,6 +83,10 @@ public class CCommunicator {
 					// chatGUI线程
 					Thread chatGUIthread = new Thread(new chatGUIThread());
 					chatGUIthread.start();
+
+					Thread aThread = new Thread(new ListeningChatInfoThread(chatSocket));
+					aThread.start();
+
 
 					
 				}
@@ -92,7 +98,7 @@ public class CCommunicator {
         }
 
 	public static void sendChatText(String text) throws IOException{
-		chatClient.Write(text);
+		Server.Write(chatSocket, text);
 	}
 
 	public static void removeChatInfoToGUI(String textString){

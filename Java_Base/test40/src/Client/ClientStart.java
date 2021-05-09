@@ -6,7 +6,7 @@ public class ClientStart {
 	public static Server aServer;
 	public static int chatPort;
 	public static Socket chatSocket;
-	public static Client aClient; //连接服务器的socket
+	public static Client aClient;
     public static void main(String[] args) throws IOException {
     	Random aRandom = new Random();
     	chatPort = 6060+aRandom.nextInt(500);
@@ -81,7 +81,8 @@ class ListeningConnectionThread implements Runnable{
 			Socket aSocket = ClientStart.aServer.accept();
 			System.out.println("Socket's detail="+aSocket.getRemoteSocketAddress());
 			ClientStart.chatSocket = aSocket;
-			
+			CCommunicator.chatSocket = aSocket;
+
 			System.out.println("ConnectSuccessfully");
 			new chatGUI();
 			System.out.println("ReadToGetText");
