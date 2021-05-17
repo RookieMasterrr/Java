@@ -40,3 +40,4 @@ test38 GUI+Socket
 test39 GUI+Socket+OneWay
 test40 GUI+Socket+model
 test41 GUI+Socket+TwoWays
+test42 Jar
