@@ -12,7 +12,7 @@ public class ClientMenuGUI {
     public static Container aContainer;
     public static JLabel aJLabel;
     public static JFrame aFrame;
-    public ClientMenuGUI(){
+    public ClientMenuGUI(String user){
         aFrame = new JFrame("ClientMenu(UserList)");
         aContainer = aFrame.getContentPane();
         aJPanel = new JPanel();
@@ -22,7 +22,7 @@ public class ClientMenuGUI {
         aJLabel = new JLabel();
         aJLabel.setPreferredSize(new DimensionUIResource(200, 50));
         aJPanel.add(new JLabel());
-        aJPanel.add(new JLabel("hello?"));
+        aJPanel.add(new JLabel("Hello "+user));
         aJPanel.add(aJLabel);
         aJPanel.add(new JLabel());
 

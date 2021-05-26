@@ -14,7 +14,7 @@ public class CCommunicator {
         LoginGUI.aFrame.dispose();
         
 		// ClientMenuGUI
-        Thread t1 = new Thread(new test());
+        Thread t1 = new Thread(new test(aClient.getLocalAddress().toString()));
         t1.start();
         
 		// 
@@ -112,9 +112,13 @@ public class CCommunicator {
 
 
 class test implements Runnable{
+	static String whoami;
+	public test(String aString){
+		whoami = aString;
+	}
 	@Override
 	public void run() {
-		new ClientMenuGUI();
+		new ClientMenuGUI(whoami);
 	}
 }
 

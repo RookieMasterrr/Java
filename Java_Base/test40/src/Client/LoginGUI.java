@@ -18,7 +18,7 @@ public class LoginGUI {
     static JButton logiButton;
     static JFrame aFrame;
     public LoginGUI(){
-        aFrame = new JFrame("Login");
+        aFrame = new JFrame("Login/register");
         Container aContainer = aFrame.getContentPane();
         JPanel aJPanel = new JPanel();
 
