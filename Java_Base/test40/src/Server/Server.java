@@ -26,15 +26,4 @@ public class Server extends ServerSocket{
         byte aText[] = text.getBytes();
         aOutputStream.write(aText);        
     }
-//    public static void main(String[] args) throws IOException{
-//        Server aServer = new Server(5050);    
-//        Socket serverSide = aServer.accept();    
-//
-//        while(true){
-//            System.out.println(Read(serverSide));
-//            Write(serverSide, "ServerEcho");
-//            System.out.println(Read(serverSide));
-//            Write(serverSide, "ServerEcho");
-//        }
-//    }
 }
