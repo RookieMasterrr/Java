@@ -4,41 +4,39 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.plaf.DimensionUIResource;
-import java.awt.FlowLayout;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.event.ActionEvent;
 
-import java.awt.Container;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class chatGUI {
-    static JFrame aFrame;
-    static Container aContainer;
-    static JPanel aJPanel;
-    static JTextArea EditArea;
-    static JTextArea RecArea;
-    static JButton aButton;
-    public chatGUI(){
-        aFrame = new JFrame("ChatGUI");
-        aContainer = aFrame.getContentPane();
-        aContainer.setLayout(new FlowLayout());
-        aJPanel = new JPanel(); 
 
-        aJPanel.add(new JLabel("RecText"));
 
-        RecArea = new JTextArea();
-        RecArea.setPreferredSize(new DimensionUIResource(200, 100));
-        aJPanel.add(RecArea);
-
-        aJPanel.add(new JLabel("EditText"));
-
-        EditArea = new JTextArea();
-        EditArea.setPreferredSize(new DimensionUIResource(200, 100));
-        aJPanel.add(EditArea);
-
-        aButton = new JButton("aButton");
-        aButton.addActionListener(new ActionListener(){
+public class chatGUI{
+	static JFrame aFrame;
+	static JTextArea EditArea;
+	static JTextArea RecArea;
+	static JButton aButton;
+	static JLabel who;
+	public chatGUI() {
+		aFrame = new JFrame("J_GUI");
+		JPanel contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		aFrame.setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		EditArea = new JTextArea();
+		EditArea.setBounds(10, 205, 255, 113);
+		contentPane.add(EditArea);
+		
+		RecArea = new JTextArea();
+		RecArea.setBounds(10, 51, 255, 113);
+		contentPane.add(RecArea);
+		
+		aButton = new JButton("发送");
+		aButton.setBounds(280, 246, 154, 36);
+		aButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 try{
                     System.out.println("You Clicked the aButton");
@@ -46,20 +44,30 @@ public class chatGUI {
                 }catch(IOException aException){
                 }
             }
-        });        
-        aJPanel.add(aButton);
-
-        aContainer.add(aJPanel);
-        aFrame.setSize(700,300);
-        aFrame.setDefaultCloseOperation(3);
-        aFrame.setVisible(true);
-        aFrame.setAlwaysOnTop(true);
-    }
-
-    public static void RecInfo(String Info){
-        RecArea.setText(RecArea.getText()+"\n"+Info);
-    }
-    // public static void main(String[] args) {
-    //     new chatGUI();
-    // }
+        });
+		contentPane.add(aButton);
+		
+		
+		who = new JLabel("someone");
+		who.setBounds(280, 87, 92, 36);
+		contentPane.add(who);
+		
+		JLabel lblNewLabel_1 = new JLabel("接收区");
+		lblNewLabel_1.setBounds(10, 26, 54, 15);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("发送区");
+		lblNewLabel_2.setBounds(10, 180, 54, 15);
+		contentPane.add(lblNewLabel_2);
+		
+		
+		
+		aFrame.setSize(500,500);
+		aFrame.setAlwaysOnTop(true);
+		aFrame.setVisible(true);
+		aFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+	public static void main(String[] args) {
+		new chatGUI();
+	}
 }
