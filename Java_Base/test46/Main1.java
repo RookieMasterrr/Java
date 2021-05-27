@@ -8,23 +8,27 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Main1 {
     public static void main(String[] args) throws IOException {
         JFrame aFrame = new JFrame();
         aFrame.setSize(400,400);
         aFrame.setVisible(true);
+        Container aContainer = aFrame.getContentPane();
+        
+        JLabel aJLabel =  new JLabel("Hello");
+        
+        aContainer.add(aJLabel);
+        
+        
         File file = new File("C:\\Users\\oFeasl\\Desktop\\TestImg.jpg");
         BufferedImage aBufferedImage = (BufferedImage)ImageIO.read(file);
-        Graphics aGraphics = aBufferedImage.getGraphics();
-//        aGraphics.drawImage(aBufferedImage,400,400,aFrame);
-        ImageIcon aIcon = new ImageIcon(aBufferedImage);
+//        aBufferedImage.set
         
-        aIcon.
-//        Container aContainer = aFrame.getContentPane();
-//        aContainer.add(aIcon);
+        Image aImage = aBufferedImage;
+        aJLabel.setIcon(new ImageIcon(aImage));
         
-        aFrame.add(aIcon);
         System.out.println("Hello");
 
     }
