@@ -44,6 +44,7 @@ public class Main1 {
         //     // System.out.println(string);
         //     // System.out.println(string.length());
         //     realhowmany++;
+        //     nothing
         // }
 
         return PartsList;
