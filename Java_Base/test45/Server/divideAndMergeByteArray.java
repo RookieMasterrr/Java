@@ -4,9 +4,21 @@ import java.io.UnsupportedEncodingException;
 public class divideAndMergeByteArray {
 
    public static void main(String[] args) throws IOException{
-        byte []byte1 = "01234".getBytes();
-        byte []byte2 = "56789".getBytes();
-        System.out.println(new String(MergeTwoBytes(byte1, byte2)));
+        byte []byte1 = "阿瑟cx东大时代".getBytes();
+        byte []byte2 = "顶顶顶顶22132".getBytes();
+        byte []byte3 = (MergeTwoBytes(byte1, byte2));
+        for (byte a : byte1) {
+            System.out.println(a);
+        }
+        System.out.println();
+        for (byte b : byte2) {
+            System.out.println(b);
+        }
+        System.out.println();
+        for (byte c : byte3) {
+            System.out.println(c);
+        }
+        System.out.println();
     }
 
    public static byte[] MergeTwoBytes(byte bytes1[],byte bytes2[])throws IOException{
