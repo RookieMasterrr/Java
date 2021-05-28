@@ -1,14 +1,13 @@
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.util.Arrays;
 
 public class UDPServer {
     public static void main(String[] args) throws IOException{
         DatagramSocket aSocket = new DatagramSocket(8800);
         System.out.println("Listening...");
         while(true){ 
-            // »ñµÃ·¢ËÍ°üµÄµÄ¸öÊý,Ã¿¸ö°üµÄ³¤¶È,×Ü³¤¶È
+            // ï¿½ï¿½Ã·ï¿½ï¿½Í°ï¿½ï¿½ÄµÄ¸ï¿½ï¿½ï¿½,Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½,ï¿½Ü³ï¿½ï¿½ï¿½
             String howManysInfo = (new String(recComingPackagesNumsAndEachLength(aSocket)));
             String []Infos = howManysInfo.split(",");
             int Nums = Integer.parseUnsignedInt(Infos[0]);
@@ -17,12 +16,12 @@ public class UDPServer {
             System.out.println(Nums);
             System.out.println(eachLength);
             System.out.println(totalLength);
-            //¿ªÊ¼½ÓÊÜÒ»ÕÅÍ¼Æ¬µÄ¸÷²¿·Ö×Ö½ÚÊý×é 
+            //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Í¼Æ¬ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ 
             String aString = "";
             for(int i=0; i<Nums; i++){
                 if(i!=Nums-1){
                     recADataGramPacket(aSocket, eachLength);
-                    aString+=
+                    
                 }else{
                     recADataGramPacket(aSocket, totalLength-((Nums-1)*eachLength));
                 }
