@@ -46,3 +46,4 @@ test44 视频
 test45 UDP
 test46 Graphic类
 test47 byte[]
+test48 String/Byte[] 编码测试
