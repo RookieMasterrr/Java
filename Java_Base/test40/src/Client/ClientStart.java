@@ -10,7 +10,7 @@ public class ClientStart {
     public static void main(String[] args) throws IOException {
     	Random aRandom = new Random();
     	chatPort = 6060+aRandom.nextInt(500);
-    	aClient = new Client("192.168.0.106", 5050);
+    	aClient = new Client("localhost", 5050);
     	CCommunicator.aClient = aClient;
 
     	aClient.Write(ReturnChatPortAndIP(aClient.getLocalSocketAddress().toString()));
@@ -20,7 +20,7 @@ public class ClientStart {
 
 		Thread JGUI = new Thread(new GUIThread());
 
-		// ¼àÌýÆäËûÓÃ»§Á¬½Ó
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
     	Thread JListen = new Thread(new ListeningConnectionThread());
 
     	System.out.println("chatPort = "+chatPort);
@@ -115,8 +115,14 @@ class ListeningChatInfoThread implements Runnable{
 			String chatText;
 			try {
 				chatText = Server.Read(listeningSocket);
-				System.out.println(chatText);
-				CCommunicator.removeChatInfoToGUI(chatText);
+				if(chatText.indexOf("VideoRequest:")==0){
+					System.out.println("VideoReRecing");
+					System.out.println("Length="+chatText.length());
+				}else{
+					System.out.println(chatText);
+					System.out.println("Length="+chatText.length());
+					CCommunicator.removeChatInfoToGUI(chatText);
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

@@ -19,6 +19,7 @@ public class chatGUI{
 	static JTextArea RecArea;
 	static JButton aButton;
 	static JLabel who;
+	static JButton videoChatBUtton;
 	public chatGUI() {
 		aFrame = new JFrame("J_GUI");
 		JPanel contentPane = new JPanel();
@@ -47,6 +48,10 @@ public class chatGUI{
         });
 		contentPane.add(aButton);
 		
+		videoChatBUtton = new JButton(" ”∆µÕ®ª∞");
+		videoChatBUtton.setBounds(280,290,154,36);
+		contentPane.add(videoChatBUtton);
+
 		
 		who = new JLabel("someone");
 		who.setBounds(280, 87, 92, 36);
