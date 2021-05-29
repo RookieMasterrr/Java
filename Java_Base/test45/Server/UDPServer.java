@@ -1,28 +1,21 @@
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.awt.*;
 
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 public class UDPServer {
     public static void main(String[] args) throws IOException{
         new J_VideoGUI();
+        // 
+        // Define RecPort
         DatagramSocket aSocket = new DatagramSocket(8800);
-
         System.out.println("Listening...");
         
         while(true){
-            J_VideoGUI.jLabel.setIcon(new ImageIcon(J_Video.recEachPicAndDisplay(aSocket)));
+            J_VideoGUI.jLabel.setIcon(J_Video.recEachPicAndDisplay(aSocket));
         }
 
-        
+
     }
     public static byte[] recADataGramPacket(DatagramSocket recSocket,int LengthYourWant) throws IOException{
         byte []data = new byte[LengthYourWant];

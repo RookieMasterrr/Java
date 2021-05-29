@@ -4,10 +4,12 @@ import java.io.InputStream;
 import java.net.DatagramSocket;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
 import java.awt.image.BufferedImage;
 
 public class J_Video {
-    public static BufferedImage recEachPicAndDisplay(DatagramSocket aSocket) throws IOException{
+    public static ImageIcon recEachPicAndDisplay(DatagramSocket aSocket) throws IOException{
             String howManysInfo = (new String(UDPServer.recComingPackagesNumsAndEachLength(aSocket)));
             String []Infos = howManysInfo.split(",");
             int Nums = Integer.parseUnsignedInt(Infos[0]);
@@ -24,6 +26,6 @@ public class J_Video {
             byte []MergeBytes = finalString.getBytes("ISO_8859_1");
             InputStream aInputStream = new ByteArrayInputStream(MergeBytes);
             BufferedImage aimage = ImageIO.read(aInputStream);
-            return aimage;
+            return new ImageIcon(aimage);
         }
 }
