@@ -1,48 +1,28 @@
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.util.Arrays;
+import java.awt.*;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class UDPServer {
     public static void main(String[] args) throws IOException{
+        new J_VideoGUI();
         DatagramSocket aSocket = new DatagramSocket(8800);
+
         System.out.println("Listening...");
-        while(true){ 
-            // get the number of packages,the length of each package,total length of packages
-            String howManysInfo = (new String(recComingPackagesNumsAndEachLength(aSocket)));
-            String []Infos = howManysInfo.split(",");
-            int Nums = Integer.parseUnsignedInt(Infos[0]);
-            int eachLength = Integer.parseUnsignedInt(Infos[1]);
-            int totalLength = Integer.parseUnsignedInt(Infos[2]);
-            System.out.println(Nums);
-            System.out.println(eachLength);
-            System.out.println(totalLength);
-            //Merge each package 
-            byte finalByte[] = new byte[totalLength];
-            int test=1;
-            for(int i=0; i<Nums; i++){
-                if(i!=Nums-1){
-                    byte []recPackage = recADataGramPacket(aSocket, eachLength);
-                    finalByte = (divideAndMergeByteArray.MergeTwoBytes(finalByte, recPackage));
-                    // aString=recString;
-                    // System.out.println("test:"+i+"i!=");
-                    // System.out.println("recString'sLength="+recString.length());
-                    // System.out.println("package"+i+"'sLength="+recPackage.length);
-                    // System.out.println("aString'sLength="+aString.length());
-                    // System.out.println();
-                }else{
-                    byte []recPackage = recADataGramPacket(aSocket, totalLength-((Nums-1)*eachLength));
-                    finalByte = (divideAndMergeByteArray.MergeTwoBytes(finalByte, recPackage));
-                    // aString=recString;
-                    // System.out.println("test:"+i+"i==");
-                    // System.out.println("recString'sLength="+recString.length());
-                    // System.out.println("package"+i+"'sLength="+recPackage.length);
-                    // System.out.println("aString'sLength="+aString.length());
-                    // System.out.println();
-                }
-            }
-            System.out.println(finalByte.length);
+        
+        while(true){
+            J_VideoGUI.jLabel.setIcon(new ImageIcon(J_Video.recEachPicAndDisplay(aSocket)));
         }
+
+        
     }
     public static byte[] recADataGramPacket(DatagramSocket recSocket,int LengthYourWant) throws IOException{
         byte []data = new byte[LengthYourWant];
@@ -68,8 +48,6 @@ public class UDPServer {
         for(int i=0; i<realLength; i++){
             realData[i] = data[i];
         }
-
-        String aString = new String(realData);
         return realData;
     }
 
