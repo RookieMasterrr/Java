@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Random;
 
+
 public class ClientStart {
 	public static Server aServer;
 	public static int chatPort;
@@ -116,8 +117,17 @@ class ListeningChatInfoThread implements Runnable{
 			try {
 				chatText = Server.Read(listeningSocket);
 				if(chatText.indexOf("VideoRequest:")==0){
-					System.out.println("VideoReRecing");
-					System.out.println("Length="+chatText.length());
+
+					String realInfo = chatText.substring(chatText.indexOf("@|")+2,chatText.lastIndexOf("@|"));
+					System.out.println("realInfo="+realInfo);
+
+
+					String UDPHost = realInfo.split(":")[0];
+					int UDPPort = Integer.parseInt(realInfo.split(":")[1]);
+					System.out.println("UDPHost="+UDPHost);
+					System.out.println("UDPPort="+UDPPort);
+					
+
 				}else{
 					System.out.println(chatText);
 					System.out.println("Length="+chatText.length());

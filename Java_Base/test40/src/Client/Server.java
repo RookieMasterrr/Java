@@ -15,12 +15,6 @@ public class Server extends ServerSocket{
         aInputStream.read(a);
         return (new String(a));
     }
-    static public byte[] ReadUDPAddressInfo(Socket aSocket)throws IOException{
-        byte a[] = new byte[65536];
-        InputStream aInputStream = aSocket.getInputStream();
-        aInputStream.read(a);
-        return a;
-    }
     static public void Write(Socket aSocket,String text) throws IOException{
         OutputStream aOutputStream = aSocket.getOutputStream();
         byte aText[] = new byte[65535];
