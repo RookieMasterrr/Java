@@ -117,18 +117,32 @@ class ListeningChatInfoThread implements Runnable{
 			try {
 				chatText = Server.Read(listeningSocket);
 				if(chatText.indexOf("VideoRequest:")==0){
-
+					// receive the UDPInfomation from the other side
 					String realInfo = chatText.substring(chatText.indexOf("@|")+2,chatText.lastIndexOf("@|"));
-					System.out.println("realInfo="+realInfo);
-
-
 					String UDPHost = realInfo.split(":")[0];
 					int UDPPort = Integer.parseInt(realInfo.split(":")[1]);
 					System.out.println("UDPHost="+UDPHost);
 					System.out.println("UDPPort="+UDPPort);
+					CCommunicator.removeChatInfoToGUI(UDPHost+UDPPort);
+					
 					
 
-				}else{
+					// sned the UDPInfomation to the other side
+					CCommunicator.sendChatText("VideoRequestEcho:@|"+"localhost:8080"+"@|Ending");
+					
+					//Hace Receive The Echo,comfirm that the otherside have receive the UDPMessage,ready to connect 
+				}else if(chatText.indexOf("VideoRequestEcho:")==0){
+					String realInfo = chatText.substring(chatText.indexOf("@|")+2,chatText.lastIndexOf("@|"));
+					String UDPHost = realInfo.split(":")[0];
+					int UDPPort = Integer.parseInt(realInfo.split(":")[1]);
+					System.out.println("UDPHost="+UDPHost);
+					System.out.println("UDPPort="+UDPPort);
+					CCommunicator.removeChatInfoToGUI(UDPHost+UDPPort);
+					
+					
+
+				}
+				else{
 					System.out.println(chatText);
 					System.out.println("Length="+chatText.length());
 					CCommunicator.removeChatInfoToGUI(chatText);
@@ -137,4 +151,14 @@ class ListeningChatInfoThread implements Runnable{
 				e.printStackTrace();
 			}
 		}	}
+}
+
+class openCameraAndSendVideoThread implements Runnable{
+
+	@Override
+	public void run() {
+
+		
+	}
+	
 }

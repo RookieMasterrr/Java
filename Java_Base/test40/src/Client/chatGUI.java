@@ -50,6 +50,17 @@ public class chatGUI{
 		
 		videoChatBUtton = new JButton(" ”∆µÕ®ª∞");
 		videoChatBUtton.setBounds(280,290,154,36);
+		videoChatBUtton.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                try{
+                    // Send the UDPInfomations
+					System.out.println("You Want Video chat");
+                    CCommunicator.sendChatText("VideoRequest:@|"+"localhost:9900"+"@|Ending");
+
+                }catch(IOException aException){
+                }
+            }
+        });
 		contentPane.add(videoChatBUtton);
 
 		
