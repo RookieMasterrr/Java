@@ -25,7 +25,7 @@ public class Client extends Socket{
 //***********************************************************//
         while(true){
             clientSide.Write();
-            System.out.println(clientSide.Read());
+            // System.out.println(clientSide.Read());
         }
         
         

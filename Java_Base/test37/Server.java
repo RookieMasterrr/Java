@@ -25,10 +25,12 @@ public class Server extends ServerSocket{
         Server aServer = new Server(5050);    
         Socket serverSide = aServer.accept();    
 //***********************************************************//
-
+        
         while(true){
             System.out.println(Read(serverSide));
-            Write(serverSide);
+            System.out.println(serverSide.getRemoteSocketAddress());
+            System.out.println(serverSide.getLocalSocketAddress());
+            // Write(serverSide);
         }
 
 //***********************************************************//
